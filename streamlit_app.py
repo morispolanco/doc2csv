@@ -18,8 +18,7 @@ def correct_paragraphs(df):
         response = openai.Completion.create(
             engine="text-davinci-003",
             prompt=paragraph,
-            max_tokens=100,
-            temperature=0.7,
+            max_tokens=250,
             n=1,
             stop=None,
             temperature=0.7
