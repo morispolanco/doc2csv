@@ -9,7 +9,7 @@ def convert_docx_to_csv(file):
         text = paragraph.text.strip()
         if text:
             data.append(text)
-    df = pd.DataFrame(data, columns=["QUERY"])
+    df = pd.DataFrame(data, columns=["query"])
     return df
 
 def main():
@@ -23,7 +23,7 @@ def main():
         st.write("Archivo .csv generado:")
         st.dataframe(df)
 
-        csv_file = df.to_csv(index=False)
+        csv_file = df.to_csv(index=False, sep=",", encoding="utf-8-sig")
         st.download_button("Descargar archivo .csv", data=csv_file, file_name="converted_file.csv")
 
 if __name__ == "__main__":
