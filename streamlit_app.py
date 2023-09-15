@@ -6,8 +6,10 @@ def convert_docx_to_csv(file):
     doc = Document(file)
     data = []
     for paragraph in doc.paragraphs:
-        data.append(paragraph.text)
-    df = pd.DataFrame(data, columns=["Text"])
+        text = paragraph.text.strip()
+        if text:
+            data.append(text)
+    df = pd.DataFrame(data, columns=["QUERY"])
     return df
 
 def main():
